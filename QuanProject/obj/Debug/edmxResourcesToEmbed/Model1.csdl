@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarNoteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="CarID" />
+    </Key>
+    <Property Name="CarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="CarName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Records" Relationship="Self.FK_Record_Car" FromRole="Car" ToRole="Record" />
+  </EntityType>
+  <EntityType Name="Record">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CarID" Type="Int32" Nullable="false" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ODO" Type="Int32" Nullable="false" />
+    <Property Name="Volume" Type="Double" Nullable="false" />
+    <Property Name="Payment" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Record_Car" FromRole="Record" ToRole="Car" />
+  </EntityType>
+  <Association Name="FK_Record_Car">
+    <End Role="Car" Type="Self.Car" Multiplicity="1" />
+    <End Role="Record" Type="Self.Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="CarID" />
+      </Principal>
+      <Dependent Role="Record">
+        <PropertyRef Name="CarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CarNoteEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cars" EntityType="Self.Car" />
+    <EntitySet Name="Records" EntityType="Self.Record" />
+    <AssociationSet Name="FK_Record_Car" Association="Self.FK_Record_Car">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Record" EntitySet="Records" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -30,7 +30,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
-            <Button x:Name="btDeleteRecord" Margin="10,5" Width="80" Height="30" Click="btDeleteRecord_Click">Delete</Button>
+            <Button x:Name="btDeleteRecord" Margin="10,5" Width="80" Height="30" Background="LightCyan" Click="btDeleteRecord_Click">Delete</Button>
         </WrapPanel>
     </Grid>
 </Window>

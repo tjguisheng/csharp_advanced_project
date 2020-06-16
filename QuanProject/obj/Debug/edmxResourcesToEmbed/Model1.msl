@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarNoteModelStoreContainer" CdmEntityContainer="CarNoteEntities">
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="CarNoteModel.Car">
+        <MappingFragment StoreEntitySet="Car">
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="CarName" ColumnName="CarName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Records">
+      <EntityTypeMapping TypeName="CarNoteModel.Record">
+        <MappingFragment StoreEntitySet="Record">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="ODO" ColumnName="ODO" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
