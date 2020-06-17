@@ -1,0 +1,11 @@
+MainWindow.xaml	// MainWindow
+	--WindowsAddCar.xaml // sub window generated from mainwindow to add car
+	--WindowAddRecord.xaml // sub window generated from mainwindow with carid parameter to add record to designated car
+	--WindowRecordList.xaml // sub window generated from mainwindow with carid parameter show records with designated car
+DataAccess.cs // service class 
+
+
+-----------------------------------------------------------------------------
+database 
+Car table store car information
+Record table store fuel adding records has forgein key connect to Car table
